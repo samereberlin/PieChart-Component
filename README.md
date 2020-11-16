@@ -31,7 +31,7 @@ It uses [Storybook](https://storybook.js.org/) tool for UI development (since it
 git clone https://github.com/samereberlin/PieChartComponent.git
 cd PieChartComponent
 npm i
-npm start
+npm run storybook
 ```
 
 ## Next steps
