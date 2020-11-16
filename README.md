@@ -7,9 +7,18 @@ It was implemented for didactic reasons, therefore it is not yet ready for produ
 The following snippet/screenshot presents the basic usage:
 
 ```
-import PieChart from '../PieChart'
-
-???
+<PieChart
+  radius={100}
+  separatorColor="#808080"
+  separatorDegree={2}
+  showValues={false}
+  showPercentages={true}
+  data={[
+    { color: "#FF9430", value: 5 },
+    { color: "#46DB75", value: 3 },
+    { color: "#00A9FF", value: 2 },
+  ]}
+/>
 ```
 
 ![BasicUsage.png](BasicUsage.png)
@@ -31,6 +40,37 @@ The component still needs a lot of adjustments to reach the production level, an
 
 - Replace CSS solution with a more robust SVG drawing, in order to allow effects such as hovering and click feedback.
 
-- Improve workaround for rendering discrepant values (e.g. 97%, 2%, 1%).
-
 - Write unit-tests and end-to-end tests (at least to cover basic functionalities).
+
+- Improve rendering of discrepant values (e.g. 97%, 2%, 1%), maybe by increasing the `distanceFromCenter` value in case of low percentage. Suggestion:
+```
+// Replace the line...
+const distanceFromCenter = radius / 1.5;
+
+// with something like...
+const distanceFromCenter = radius / (percentages[idx] < 0.1 ? 1.2 : 1.5);
+
+// or even better...
+const lowPercentage = percentages[idx] < 0.1;
+const distanceFromCenter = radius / (lowPercentage ? 1.2 : 1.5);
+const style = lowPercentage ? { fontSize: '0.8em' } : {};
+...
+<div className={styles.text} style={style}>
+```
+
+- Add the possibility of rendering a 1 pixel tick border-line between the pie-pieces (from the center to the arc) instead of using separatorDegree, maybe using a simple div with the appropriated rotating angle. Suggestion:
+```
+// Add new DIVs into the pie (1 per each item),
+// and render it in the pie-piece starting angle using a css like:
+element.style {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    border-width: 2px 0 0 0;
+    border-color: black;
+    border-style: solid;
+    width: 100px;
+    transform: rotate(-90deg) rotate(90deg);
+    transform-origin: top left;
+}
+```
