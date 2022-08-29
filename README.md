@@ -1,6 +1,6 @@
-# PieChartComponent
+# PieChart-Component
 
-PieChartComponent is a simple ReactJS component designed to render simple Pie Charts (circular statistical graphics).
+PieChart-Component is a simple ReactJS component designed to render simple Pie Charts (circular statistical graphics).
 
 It was implemented for didactic reasons, therefore it is not yet ready for production (see [Next steps](#next-steps) section below).
 
@@ -28,8 +28,8 @@ The following snippet/screenshot presents the basic usage:
 It uses [Storybook](https://storybook.js.org/) tool for UI development (since it does not contain a standalone application), so basically:
 
 ```
-git clone https://github.com/samereberlin/PieChartComponent.git
-cd PieChartComponent
+git clone https://github.com/samereberlin/PieChart-Component.git
+cd PieChart-Component
 npm i
 npm run storybook
 ```
@@ -43,6 +43,7 @@ The component still needs a lot of adjustments to reach the production level, an
 - Write unit-tests and end-to-end tests (at least to cover basic functionalities).
 
 - Improve rendering of discrepant values (e.g. 97%, 2%, 1%), maybe by increasing the `distanceFromCenter` value in case of low percentage. Suggestion:
+
 ```
 // Replace the line...
 const distanceFromCenter = radius / 1.5;
@@ -59,6 +60,7 @@ const style = lowPercentage ? { fontSize: '0.8em' } : {};
 ```
 
 - Add the possibility of rendering a 1 pixel tick border-line between the pie-pieces (from the center to the arc) instead of using separatorDegree, maybe using a simple div with the appropriated rotating angle. Suggestion:
+
 ```
 // Add new DIVs into the pie (1 per each item),
 // and render it in the pie-piece starting angle using a css like:

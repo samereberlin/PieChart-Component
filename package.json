@@ -1,7 +1,7 @@
 {
   "name": "PieChartComponent",
   "version": "1.0.0",
-  "description": "PieChartComponent is a simple ReactJS component designed to render simple Pie Charts (circular statistical graphics).",
+  "description": "PieChart-Component is a simple ReactJS component designed to render simple Pie Charts (circular statistical graphics).",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,15 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/samereberlin/PieChartComponent.git"
+    "url": "git+https://github.com/samereberlin/PieChart-Component.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/samereberlin/PieChartComponent/issues"
-  },
-  "homepage": "https://github.com/samereberlin/PieChartComponent#readme",
+  "homepage": "https://github.com/samereberlin/PieChart-Component#readme",
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@storybook/addon-actions": "^6.0.28",
